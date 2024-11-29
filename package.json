@@ -1,10 +1,10 @@
 {
-  "name": "auto-3d-contribution",
+  "name": "auto-contribution",
   "version": "7.0.0",
-  "description": "Generate profile 3D Contributions",
+  "description": "Github Action to Generate Profile 3D Contributions in SVG.",
   "main": "dist/index.js",
   "scripts": {
-    "build": "esbuild src/index.ts --bundle --outdir=dist --platform=node --sourcemap",
+    "build": "esbuild src/index.ts --bundle --outdir=dist --platform=node --sourcemap --minify --analyze=verbose --external:canvas --external:./xhr-sync-worker.js",
     "dev": "ts-node src/index.ts",
     "dev:watch": "ts-node-dev --respawn src/index.ts",
     "tsc": "tsc",
@@ -42,7 +42,6 @@
     "@types/node": "^14.14.44",
     "@typescript-eslint/eslint-plugin": "^4.22.1",
     "@typescript-eslint/parser": "^4.22.1",
-    "@vercel/ncc": "^0.28.5",
     "axios-mock-adapter": "^1.19.0",
     "eslint": "^7.25.0",
     "eslint-config-prettier": "8.3.0",
@@ -62,10 +61,7 @@
     "@types/jsdom": "^16.2.10",
     "axios": "^0.21.1",
     "d3": "^6.7.0",
+    "esbuild": "^0.24.0",
     "jsdom": "^16.5.3"
-  },
-  "pre-commit": [
-    "test",
-    "lint:fix"
-  ]
+  }
 }

@@ -21,8 +21,8 @@ importers:
         specifier: ^16.2.10
         version: 16.2.15
       axios:
-        specifier: ^0.21.1
-        version: 0.21.4
+        specifier: ^0.28.0
+        version: 0.28.0
       d3:
         specifier: ^6.7.0
         version: 6.7.0
@@ -45,12 +45,9 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^4.22.1
         version: 4.33.0(eslint@7.32.0)(typescript@4.9.5)
-      '@vercel/ncc':
-        specifier: ^0.28.5
-        version: 0.28.6
       axios-mock-adapter:
         specifier: ^1.19.0
-        version: 1.22.0(axios@0.21.4)
+        version: 1.22.0(axios@0.28.0)
       eslint:
         specifier: ^7.25.0
         version: 7.32.0
@@ -761,10 +758,6 @@ packages:
     resolution: {integrity: sha512-uqi/2aSz9g2ftcHWf8uLPJA70rUv6yuMW5Bohw+bwcuzaxQIHaKFZCKGoGXIrc9vkTJ3+0txM73K0Hq3d5wgIg==}
     engines: {node: ^8.10.0 || ^10.13.0 || >=11.10.1}
 
-  '@vercel/ncc@0.28.6':
-    resolution: {integrity: sha512-t4BoSSuyK8BZaUE0gV18V6bkFs4st7baumtFGa50dv1tMu2GDBEBF8sUZaKBdKiL6DzJ2D2+XVCwYWWDcQOYdQ==}
-    hasBin: true
-
   abab@2.0.6:
     resolution: {integrity: sha512-j2afSsaIENvHZN2B8GOpF566vZ5WVk5opAiMTvWgaQT8DkbOqsTfvNAvHoRGU2zzP8cPoqys+xHTRDWW8L+/BA==}
     deprecated: Use your platform's native atob() and btoa() methods instead
@@ -887,8 +880,8 @@ packages:
     peerDependencies:
       axios: '>= 0.17.0'
 
-  axios@0.21.4:
-    resolution: {integrity: sha512-ut5vewkiu8jjGBdqpM44XxjuCjq9LAKeHVmoVfHVzy8eHgxxq8SbAVQNovDA8mVi05kP0Ea/n/UzcSHcTJQfNg==}
+  axios@0.28.0:
+    resolution: {integrity: sha512-Tu7NYoGY4Yoc7I+Npf9HhUMtEEpV7ZiLH9yndTCoNhcpBH0kwcvFbzYN9/u5QKI5A6uefjsNNWaz5olJVYS62Q==}
 
   babel-jest@26.6.3:
     resolution: {integrity: sha512-pl4Q+GAVOHwvjrck6jKjvmGhnO3jHX/xuB9d27f+EJZ/6k+6nMuPjorrYp7s++bKKdANwzElBWnLWaObvTnaZA==}
@@ -1518,6 +1511,10 @@ packages:
 
   form-data@3.0.2:
     resolution: {integrity: sha512-sJe+TQb2vIaIyO783qN6BlMYWMw3WBOHA1Ay2qxsnjuafEOQFJ2JakedOQirT6D5XPRxDvS7AHYyem9fTpb4LQ==}
+    engines: {node: '>= 6'}
+
+  form-data@4.0.1:
+    resolution: {integrity: sha512-tzN8e4TX8+kkxGPK8D5u0FNmjPUjw3lwC9lSLxxoB/+GtsJG91CO8bSWy73APlgAZzZbXEYZJuxjkHH2w+Ezhw==}
     engines: {node: '>= 6'}
 
   fragment-cache@0.2.1:
@@ -2442,6 +2439,9 @@ packages:
   prompts@2.4.2:
     resolution: {integrity: sha512-NxNv/kLguCA7p3jE8oL2aEBsrJWgAakBpgmgK6lpPWV+WuOmY6r2/zbAVnP+T8bQlA0nzHXSJSJW0Hq7ylaD2Q==}
     engines: {node: '>= 6'}
+
+  proxy-from-env@1.1.0:
+    resolution: {integrity: sha512-D+zkORCbA9f1tdWRK0RaCR3GPv50cMxcrz4X8k5LTSUD1Dkw47mKJEZQNunItRTkWwgtaUSo1RVFRIG9ZXiFYg==}
 
   psl@1.13.0:
     resolution: {integrity: sha512-BFwmFXiJoFqlUpZ5Qssolv15DMyc84gTBds1BjsV1BfXEo1UyyD7GsmN67n7J77uRhoSNW1AXtXKPLcBFQn9Aw==}
@@ -3960,8 +3960,6 @@ snapshots:
       '@typescript-eslint/types': 4.33.0
       eslint-visitor-keys: 2.1.0
 
-  '@vercel/ncc@0.28.6': {}
-
   abab@2.0.6: {}
 
   acorn-globals@6.0.0:
@@ -4071,15 +4069,17 @@ snapshots:
     dependencies:
       possible-typed-array-names: 1.0.0
 
-  axios-mock-adapter@1.22.0(axios@0.21.4):
+  axios-mock-adapter@1.22.0(axios@0.28.0):
     dependencies:
-      axios: 0.21.4
+      axios: 0.28.0
       fast-deep-equal: 3.1.3
       is-buffer: 2.0.5
 
-  axios@0.21.4:
+  axios@0.28.0:
     dependencies:
       follow-redirects: 1.15.9
+      form-data: 4.0.1
+      proxy-from-env: 1.1.0
     transitivePeerDependencies:
       - debug
 
@@ -4932,6 +4932,12 @@ snapshots:
   for-in@1.0.2: {}
 
   form-data@3.0.2:
+    dependencies:
+      asynckit: 0.4.0
+      combined-stream: 1.0.8
+      mime-types: 2.1.35
+
+  form-data@4.0.1:
     dependencies:
       asynckit: 0.4.0
       combined-stream: 1.0.8
@@ -6056,6 +6062,8 @@ snapshots:
     dependencies:
       kleur: 3.0.3
       sisteransi: 1.0.5
+
+  proxy-from-env@1.1.0: {}
 
   psl@1.13.0:
     dependencies:
